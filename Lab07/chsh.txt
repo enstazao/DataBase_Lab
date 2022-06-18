@@ -1,0 +1,9 @@
+1: Proposal
+2: ERD
+3: Source
+Jo chez ap group by ma add krta ha os ko projection ma bhi add kr da
+Inner Query Inside the Complete Query   
+Using Having with the groupby clause
+ALL works the value greater then all the values given in the list
+sUBqUERIES CAN COME IN THE PLACE OF projection
+Attribute list sUBqUERIES

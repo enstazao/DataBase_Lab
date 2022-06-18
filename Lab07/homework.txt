@@ -1,0 +1,86 @@
+1)
+mysql> SELECT ename FROM emp WHERE salary = (SELECT MAX(salary) FROM emp);
++-------+
+| ename |
++-------+
+| King  |
++-------+
+1 row in set (0.00 sec)
+
+
+/**************************************************/
+
+2)
+mysql> SELECT ename FROM emp NATURAL JOIN dept WHERE dname='SALES';
++--------+
+| ename  |
++--------+
+| Allen  |
+| Ward   |
+| Martin |
+| Blake  |
+| Turner |
+| James  |
++--------+
+6 rows in set (0.00 sec)
+
+
+
+/****************************************************/
+3)
+mysql> SELECT ename FROM emp NATURAL JOIN dept WHERE location='New York';
++--------+
+| ename  |
++--------+
+| Clark  |
+| King   |
+| Miller |
++--------+
+3 rows in set (0.00 sec)
+
+/****************************************************/
+4)
+mysql> SELECT count(*) AS EMPLOYEES_IN_SALES FROM emp NATURAL JOIN dept WHERE deptno=(SELECT deptno FROM dept WHERE dname='Sales');
++--------------------+
+| EMPLOYEES_IN_SALES |
++--------------------+
+|                  6 |
++--------------------+
+1 row in set (0.00 sec)
+
+
+5)
+mysql> SELECT ename FROM emp NATURAL JOIN dept WHERE salary > (SELECT MAX(salary) FROM emp WHERE deptno=30);
++-------+
+| ename |
++-------+
+| Jones |
+| Scott |
+| King  |
+| Ford  |
++-------+
+4 rows in set (0.00 sec)
+
+
+/********************************************************/
+6)
+mysql> SELECT DISTINCT ename FROM emp NATURAL JOIN dept WHERE salary > (SELECT MIN(salary) FROM emp WHERE deptno=30);
++--------+
+| ename  |
++--------+
+| Allen  |
+| Ward   |
+| Jones  |
+| Martin |
+| Blake  |
+| Clark  |
+| Scott  |
+| David  |
+| King   |
+| Turner |
+| Adams  |
+| Ford   |
+| Miller |
++--------+
+13 rows in set (0.00 sec)
+
